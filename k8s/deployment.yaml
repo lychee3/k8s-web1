@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-web1-ap
+  labels:
+    app: k8s-web1-ap
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: k8s-web1-ap
+  template:
+    metadata:
+      labels:
+        app: k8s-web1-ap
+    spec:
+      containers:
+      - name: k8s-web1-ap
+        image: lychee3/k8s-web1-ap:v1
+        command:
+        ports:
+          - containerPort: 3000
